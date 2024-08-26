@@ -11,7 +11,6 @@ async function getTransactions(address) {
     for (let i = 0; i <= latestBlockNumber; i++) {
       const block = await web3.eth.getBlock(latestBlockNumber - i, true);
       if (block?.transactions) {
-        web3.eth.getTransactionFromBlock
         for (const tx of block.transactions) {
           const data = await web3.eth.getTransaction(tx.hash);
           console.log(`transactionHash ${tx.hash}:`, data);
